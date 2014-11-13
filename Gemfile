@@ -41,10 +41,17 @@ end
 group :development, :test do
   # rspec because testing
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'pry'
 end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+group :test do
+  gem 'capybara'
+  gem 'rack_session_access'
+  gem 'database_cleaner'
+  gem 'simplecov', require: false
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
