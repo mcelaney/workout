@@ -1,6 +1,4 @@
 == Workout
 
-{<img src="https://codeclimate.com/github/mcelaney/workout/badges/gpa.svg" />}[https://codeclimate.com/github/mcelaney/workout]
-
-{<img src="https://codeclimate.com/github/mcelaney/workout/badges/coverage.svg" />}[https://codeclimate.com/github/mcelaney/workout]
+{<img src="https://codeclimate.com/github/mcelaney/workout/badges/gpa.svg" />}[https://codeclimate.com/github/mcelaney/workout] {<img src="https://codeclimate.com/github/mcelaney/workout/badges/coverage.svg" />}[https://codeclimate.com/github/mcelaney/workout] {<img src="https://semaphoreapp.com/api/v1/projects/761f814e-2917-484a-be62-370483c9d182/289046/shields_badge.svg" />}[https://semaphoreapp.com/mcelaney/workout]
 
