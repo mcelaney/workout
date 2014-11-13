@@ -51,6 +51,8 @@ group :test do
   gem 'rack_session_access'
   gem 'database_cleaner'
   gem 'simplecov', require: false
+  gem 'codeclimate-test-reporter'
+  gem 'rake'
 end
 
 # Use unicorn as the app server
