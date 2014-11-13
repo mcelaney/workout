@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../app/models/workout_detail'
 
-describe WorkoutDetail do
+RSpec.describe WorkoutDetail do
   let(:plan) do
     class_double(
       'WorkoutPlan', workout1: double(percentages: [0.52], reps: [2])

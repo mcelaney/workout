@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../app/models/workout_plan'
 
-describe WorkoutPlan do
+RSpec.describe WorkoutPlan do
   describe 'plan' do
     it 'Returns a WorkoutPlan struct' do
       plan = WorkoutPlan.plan(percentages: :percentage_array, reps: :reps_array)
@@ -9,10 +9,16 @@ describe WorkoutPlan do
     end
   end
 
-  describe 'workout1' do
+  describe 'workouts' do
     it 'Returns a WorkoutPlan struct' do
-      expect(WorkoutPlan.workout1.percentages.class).to eq Array
-      expect(WorkoutPlan.workout1.reps.class).to eq Array
+      [
+        :workout1, :workout2, :workout3, :workout4, :workout5, :workout6,
+        :workout7, :workout8, :workout9, :workout10, :workout11, :workout12,
+        :workout13, :workout14
+      ].each do |workout|
+        expect(WorkoutPlan.send(workout).percentages.class).to eq Array
+        expect(WorkoutPlan.send(workout).reps.class).to eq Array
+      end
     end
   end
 
