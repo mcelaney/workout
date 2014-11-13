@@ -2,3 +2,12 @@
 
 {<img src="https://codeclimate.com/github/mcelaney/workout/badges/gpa.svg" />}[https://codeclimate.com/github/mcelaney/workout] {<img src="https://codeclimate.com/github/mcelaney/workout/badges/coverage.svg" />}[https://codeclimate.com/github/mcelaney/workout] {<img src="https://semaphoreapp.com/api/v1/projects/761f814e-2917-484a-be62-370483c9d182/289046/shields_badge.svg" />}[https://semaphoreapp.com/mcelaney/workout]
 
+== What am I?
+This is a toy app to demonstrate some Ruby/Rails concepts. The idea is that you would log in, give some information about various exercises and/or goals, and be given workouts to perform.
+
+This project displays some thoughts I have been kicking around on rails controllers, services (and PORO use in general), and testing. As of the moment I'm actively coding on it - check back frequently.
+
+I would love feedback on this - if you see anything you love or hate feel free to do a code review or pull request. If you have questions - hit me up on twitter: {@mcelaney}[http://www.twitter.com/mcelaney]
+
+== Disclaimer
+I am not a healthcare professional. I am not even in shape. You do not want to take health or workout advice from me. The information and content in this app are from random Men's Health articles. This is for demonstrating code - do not attempt to perform the workouts. Don't even workout... and if you do don't blame it (or any related positive or negative results) on me.
