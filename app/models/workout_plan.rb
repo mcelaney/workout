@@ -4,13 +4,13 @@ class WorkoutPlan
   # Workout Plan factory method
   #
   # Workout plans respond to percentages and reps for the required sets
-  # - percentages: array of values representing the weight percentage to lift
-  # - reps: array of values representing the number of times to lift
   #
+  # @params [Array] percentages: The weight percentages to lift
+  # @params [Array] reps: The number of times to lift
   # @return [Struct] workout plan
   #
-  def self.plan(args)
-    Struct.new(:percentages, :reps).new(args[:percentages], args[:reps])
+  def self.plan(percentages:, reps:)
+    Struct.new(:percentages, :reps).new(percentages, reps)
   end
 
   # Workout information for the first week

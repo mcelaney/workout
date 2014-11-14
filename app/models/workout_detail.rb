@@ -3,18 +3,17 @@
 class WorkoutDetail
   attr_reader :rep_max
 
-  # Expects args with keys:
-  # - rep_max: [Integer] value of 1 rep max
-  # - workout: [Integer] workout to return data for
-  # - plan: [WorkoutPlan] a WorkoutPlan object containing the data
+  # initialize a new WorkoutDetail
   #
-  # @param [Hash]
+  # @param [Integer] rep_max: value of 1 rep max
+  # @param [Integer] workout: workout to return data for
+  # @param [WorkoutPlan] plan: a WorkoutPlan object containing the data
   # @return [WorkoutDetail]
   #
-  def initialize(args)
-    @rep_max = args[:rep_max]
-    @workout = args[:workout]
-    @plan = args[:plan]
+  def initialize(rep_max:, workout:, plan:)
+    @rep_max = rep_max
+    @workout = workout
+    @plan = plan
   end
 
   # Query: Returns the weight to use for a given set
