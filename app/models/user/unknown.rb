@@ -1,3 +1,6 @@
+# The user module is responsible for representing the concept of users in the
+# system.
+#
 module User
   # Null Object pattern for an unknown user
   #
