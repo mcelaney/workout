@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
   end
 
   def credentialing
-    Credentialing.new(self, credential_params)
+    Workout::Credentialing.new(self, credential_params)
   end
 
   def credential_params

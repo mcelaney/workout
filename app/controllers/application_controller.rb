@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   def current_user
-    @_user ||= Credentialing.current_user(session.fetch(:user_id, nil))
+    @_user ||= Workout::Credentialing.current_user(session.fetch(:user_id, nil))
   end
 
   helper_method :current_user?
