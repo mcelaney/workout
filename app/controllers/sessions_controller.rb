@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
 
   def log_in_success(user_id)
     session[:user_id] = user_id
-    redirect_to root_url, notice: I18n.t('session.logged_in')
+    redirect_to user_path(user_id), notice: I18n.t('session.logged_in')
   end
 
   def log_in_failure
