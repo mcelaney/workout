@@ -10,18 +10,23 @@ module Workout
     class Unknown
       include NullObject
 
+      attr_reader :email, :id
+
       # Query: Mimic .authenticate from has_secure_password module
       #
-      # Always returns false because an unknown user can not authenticate
+      # @param _ [Object] Ignored param
+      # @return [Boolean] Always returns false
       #
       def authenticate(_)
         false
       end
 
-      # Query: Mimic empty id parameter
+      # Query: Mimic .errors
       #
-      def id
-        nil
+      # @return [Array] Always returns empty array
+      #
+      def errors
+        []
       end
     end
   end

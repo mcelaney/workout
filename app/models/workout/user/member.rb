@@ -20,7 +20,7 @@ module Workout
 
       # Query: Looks for a user by email
       #
-      # @params [string] the email to search on
+      # @param email [string] the email to search on
       # @return [Member] Will return self.unknown_user if not found
       #
       def self.find_by_email(email)
@@ -29,7 +29,7 @@ module Workout
 
       # Query: Looks for a user by id
       #
-      # @params [int] the id to search on
+      # @param id [Integer] the id to search on
       # @return [Member] Will return self.unknown_user if not found
       #
       def self.find_by_id(id)

@@ -8,8 +8,8 @@ module Workout
     #
     # Workout plans respond to percentages and reps for the required sets
     #
-    # @params [Array] percentages: The weight percentages to lift
-    # @params [Array] reps: The number of times to lift
+    # @param [Array] percentages: The weight percentages to lift
+    # @param [Array] reps: The number of times to lift
     # @return [Struct] workout plan
     #
     def self.plan(percentages:, reps:)

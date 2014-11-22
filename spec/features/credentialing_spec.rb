@@ -10,8 +10,8 @@ RSpec.feature 'A user can attempt log in' do
     visit root_url
     click_link I18n.t('navigation.sign_in')
     within('.session') do
-      fill_in 'Email', with: email
-      fill_in 'Password', with: password
+      fill_in I18n.t('user.fields.email'), with: email
+      fill_in I18n.t('user.fields.password'), with: password
     end
     click_button 'Log in'
     expect(page).to have_content I18n.t('session.logged_in')
@@ -20,8 +20,8 @@ RSpec.feature 'A user can attempt log in' do
   scenario 'fails with incorrect credentials' do
     visit log_in_path
     within('.session') do
-      fill_in 'Email', with: email
-      fill_in 'Password', with: 'not the password'
+      fill_in I18n.t('user.fields.email'), with: email
+      fill_in I18n.t('user.fields.password'), with: 'not the password'
     end
     click_button 'Log in'
     expect(page).to have_content I18n.t('session.invalid')

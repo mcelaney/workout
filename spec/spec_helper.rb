@@ -4,8 +4,10 @@ CodeClimate::TestReporter.start
 require 'simplecov'
 SimpleCov.start do
   add_group 'Controllers', 'app/controllers'
+  add_group 'Helpers', 'app/helpers'
   add_group 'Models', 'app/models'
   add_group 'Services', 'app/services'
+  add_group 'View Models', 'app/view_models'
   add_group 'Views', 'app/views'
 end
 

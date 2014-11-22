@@ -15,11 +15,11 @@ module Workout
 
     # Query: returns a user object
     #
-    # @params [Integer] the user id to search for
+    # @param [Integer] the user id to search for
     # @return [User::Member] A user object of user null object
     #
     def self.current_user(user_id)
-      User::Member.find_by_id(user_id)
+      Workout::User::Member.find_by_id(user_id)
     end
 
     # Command: Attempts to authenticate a user
@@ -31,6 +31,9 @@ module Workout
     # If user.authenticate fails we sleep for a random fraction of .25 of a
     # second. This is done as a defense against timing attacks.
     #
+    # @param events [Hash]
+    # @return [self]
+    #
     def log_in(events)
       if user.authenticate(@password)
         events[:success].call(user.id)
@@ -38,12 +41,13 @@ module Workout
         sleep(rand * 0.25)
         events[:failure].call
       end
+      self
     end
 
     private
 
     def user
-      @user ||= User::Member.find_by_email(@email)
+      @_user ||= Workout::User::Member.find_by_email(@email)
     end
   end
 end

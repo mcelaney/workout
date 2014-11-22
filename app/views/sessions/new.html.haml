@@ -1,11 +1,11 @@
-%h1 Log in
+%h2= I18n.t('session.title')
 
 .session
   = form_tag sessions_path do
     .field
-      = label_tag :email
+      = label_tag :email, I18n.t('user.fields.email')
       = text_field_tag :email, params[:email]
     .field
-      = label_tag :password
+      = label_tag :password, I18n.t('user.fields.password')
       = password_field_tag :password
     .actions= submit_tag "Log in"

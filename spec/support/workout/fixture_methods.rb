@@ -3,7 +3,7 @@
 module FixtureMethods
   # Query: Returns a new User::Member
   #
-  # @params [Hash]
+  # @param [Hash]
   # @return [User::Member]
   #
   def get_user_member(params = {})
@@ -21,7 +21,7 @@ module FixtureMethods
 
   # Command: Creates a user and sets the user_id in session to the user's id
   #
-  # @params [Hash]
+  # @param [Hash]
   # @return [self]
   #
   def create_current_user(params = {})

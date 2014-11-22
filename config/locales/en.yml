@@ -1,8 +1,25 @@
 en:
-  session:
-    logged_in: 'Logged in!'
-    invalid: 'Invalid email or password'
-    logged_out: 'Logged out!'
+  form:
+    save: 'Save'
+    edit: 'Edit'
   navigation:
     sign_out: 'Sign Out'
     sign_in: 'Sign In'
+    sign_up: 'Sign Up'
+  session:
+    title: 'Log in'
+    logged_in: 'Logged in!'
+    invalid: 'Invalid email or password'
+    logged_out: 'Logged out!'
+    not_authorized: 'Please log in'
+    must_not_be_authorized: 'You must be logged out to do that'
+  user:
+    title: 'Join us!'
+    show: 'Your Profile'
+    updated: 'User has been updated successfully'
+    fields:
+      email: 'Your email:'
+      password: 'Password'
+      confirmation: 'Password Confirmation:'
+      join: 'Join!'
+

@@ -23,7 +23,7 @@ module Workout
     #
     # @todo Handle set doesn't exist
     #
-    # @param [Integer] workout set
+    # @param set [Integer] workout set
     # @return [Integer] weight to lift
     #
     def weight_for_set(set)
@@ -36,7 +36,7 @@ module Workout
     #
     # @todo Handle set doesn't exist
     #
-    # @param [Integer] workout set
+    # @param set [Integer] workout set
     # @param [Integer] number of lifts to perform
     def reps_for_set(set)
       @plan.send(current_workout).reps[set - 1]
