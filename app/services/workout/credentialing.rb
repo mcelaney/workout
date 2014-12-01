@@ -19,7 +19,7 @@ module Workout
     # @return [User::Member] A user object of user null object
     #
     def self.current_user(user_id)
-      Workout::User::Member.find_by_id(user_id)
+      User::Member.find_by_id(user_id)
     end
 
     # Command: Attempts to authenticate a user
@@ -47,7 +47,7 @@ module Workout
     private
 
     def user
-      @_user ||= Workout::User::Member.find_by_email(@email)
+      @_user ||= User::Member.find_by_email(@email)
     end
   end
 end
