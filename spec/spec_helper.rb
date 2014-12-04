@@ -9,6 +9,7 @@ SimpleCov.start do
   add_group 'Services', 'app/services'
   add_group 'View Models', 'app/view_models'
   add_group 'Views', 'app/views'
+  add_group 'Config', 'config'
 end
 
 RSpec.configure do |config|

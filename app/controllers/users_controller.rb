@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # action: Edit user action
+  # action: Update user action
   #
   # Calls update_information on joining service. Sends success and failure
   # - success: calls user_change_success private method to forward the user

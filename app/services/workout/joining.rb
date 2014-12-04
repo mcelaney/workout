@@ -7,7 +7,7 @@ module Workout
     delegate :current_user, to: :@listener
 
     def self.new_member
-      Workout::User::Member.new
+      User::Member.new
     end
 
     # Initializer: Accepts a controller and a params hash.
@@ -34,6 +34,7 @@ module Workout
       else
         events[:failure].call(new_user)
       end
+      self
     end
 
     # Command: create a new member
@@ -53,12 +54,13 @@ module Workout
       else
         events[:failure].call(current_user)
       end
+      self
     end
 
     private
 
     def new_user
-      @_user ||= Workout::User::Member.new(@params)
+      @_user ||= User::Member.new(@params)
     end
   end
 end
