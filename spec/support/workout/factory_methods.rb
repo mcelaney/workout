@@ -1,6 +1,6 @@
 # Makes fixture methods available to feature specs
 #
-module FixtureMethods
+module FactoryMethods
   # Query: Returns a new User::Member
   #
   # @param [Hash]
