@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   #
   def create
     credentialing.log_in(
-      success: -> (user_id) { log_in_success(user_id) },
+      success: -> (user_id:) { log_in_success(user_id) },
       failure: -> { log_in_failure }
     )
   end

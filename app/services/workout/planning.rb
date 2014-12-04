@@ -15,9 +15,9 @@ module Workout
       plan.assign_attributes(@params)
       if plan.valid?
         plan.save!
-        events[:success].call(current_user.id)
+        events[:success].call(user_id: current_user.id)
       else
-        events[:failure].call(current_user)
+        events[:failure].call(user_model: current_user)
       end
     end
 

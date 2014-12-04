@@ -11,8 +11,8 @@ class WorkoutPlansController < ApplicationController
   #
   def update
     planning.update_information(
-      success: -> (user_id) { plan_change_success(user_id) },
-      failure: -> (user_id) { plan_change_failure(user_id) }
+      success: -> (user_id:) { plan_change_success(user_id: user_id) },
+      failure: -> (user_model:) { plan_change_failure(user_model: user_model) }
     )
   end
 
@@ -25,11 +25,11 @@ class WorkoutPlansController < ApplicationController
     redirect_to root_url, alert: I18n.t('session.not_authorized')
   end
 
-  def plan_change_success(user_id)
+  def plan_change_success(user_id:)
     redirect_to user_path(user_id), notice: I18n.t('user.updated')
   end
 
-  def plan_change_failure(user_model)
+  def plan_change_failure(user_model:)
     user_model.load_workout_plan_params(workout_plan_params)
     @user = User.new(user_model)
     render 'users/show'

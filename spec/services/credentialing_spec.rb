@@ -28,9 +28,9 @@ module Workout
           :a_controller,
           email: :an_email, password: :a_password
         ).log_in(
-          success: lambda do |user_id|
+          success: lambda do |return_hash|
             @success_called = true
-            @user_id = user_id
+            @user_id = return_hash[:user_id]
           end
         )
 

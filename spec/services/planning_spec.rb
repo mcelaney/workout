@@ -17,9 +17,9 @@ module Workout
           controller,
           bench_press: 100
         ).update_information(
-          success: lambda do |user_id|
+          success: lambda do |return_hash|
             @success_called = true
-            @user_id = user_id
+            @user_id = return_hash[:user_id]
           end
         )
 
@@ -36,9 +36,9 @@ module Workout
           controller,
           bench_press: 100
         ).update_information(
-          failure: lambda do |user|
+          failure: lambda do |return_hash|
             @failure_called = true
-            @user = user
+            @user = return_hash[:user_model]
           end
         )
 

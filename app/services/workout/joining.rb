@@ -30,9 +30,9 @@ module Workout
     def create_member(events)
       if new_user.valid?
         new_user.save!
-        events[:success].call(new_user.id)
+        events[:success].call(user_id: new_user.id)
       else
-        events[:failure].call(new_user)
+        events[:failure].call(user_model: new_user)
       end
       self
     end
@@ -50,9 +50,9 @@ module Workout
       current_user.assign_attributes(@params)
       if current_user.valid?
         current_user.save!
-        events[:success].call(current_user.id)
+        events[:success].call(user_id: current_user.id)
       else
-        events[:failure].call(current_user)
+        events[:failure].call(user_model: current_user)
       end
       self
     end

@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   #
   def create
     joining.create_member(
-      success: -> (user_id) { user_creation_success(user_id) },
-      failure: -> (user_model) { user_creation_failure(user_model) }
+      success: -> (user_id:) { user_creation_success(user_id: user_id) },
+      failure: -> (user_model:) { user_creation_failure(user_model: user_model) }
     )
   end
 
@@ -43,8 +43,8 @@ class UsersController < ApplicationController
   #
   def update
     joining.update_information(
-      success: -> (user_id) { user_change_success(user_id) },
-      failure: -> (user_model) { user_change_failure(user_model) }
+      success: -> (user_id:) { user_change_success(user_id: user_id) },
+      failure: -> (user_model:) { user_change_failure(user_model: user_model) }
     )
   end
 
@@ -74,21 +74,21 @@ class UsersController < ApplicationController
     @user = User.new(current_user)
   end
 
-  def user_change_success(user_id)
+  def user_change_success(user_id:)
     redirect_to user_path(user_id), notice: I18n.t('user.updated')
   end
 
-  def user_change_failure(user_model)
+  def user_change_failure(user_model:)
     @user = User.new(user_model)
     render :edit
   end
 
-  def user_creation_success(user_id)
+  def user_creation_success(user_id:)
     session[:user_id] = user_id
     redirect_to root_url, notice: I18n.t('session.logged_in')
   end
 
-  def user_creation_failure(user_model)
+  def user_creation_failure(user_model:)
     @user = User.new(user_model)
     render :new
   end
