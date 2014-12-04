@@ -2,6 +2,8 @@ en:
   form:
     save: 'Save'
     edit: 'Edit'
+    errors:
+      whole_number: 'must be a whole number'
   navigation:
     sign_out: 'Sign Out'
     sign_in: 'Sign In'
@@ -22,4 +24,14 @@ en:
       password: 'Password'
       confirmation: 'Password Confirmation:'
       join: 'Join!'
-
+  workout:
+    fields:
+      bench_press: 'Bench Press'
+      lat_pull: 'Lat Pull Down'
+      deadlift: 'Deadlift'
+      military_press: 'Military Press'
+      one_arm_row: 'One Arm Row'
+      curls: 'Curls'
+      squats: 'Squats'
+      dips: 'Dips'
+      pullups: 'Pullups'

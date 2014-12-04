@@ -1,0 +1,46 @@
+%h3 Set up workout
+- if workout.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(workout.errors.count, "error")} prohibited this plan from being saved:"
+    %ul
+      - workout.errors.full_messages.each do |msg|
+        %li= msg
+
+.defaults
+  = form_for workout,                                                     |
+             url: user_workout_plan_path(workout.member_id, workout.id),  |
+             method: :patch do |f|                                        |
+    %fieldset
+      %legend 1-rep max values:
+      .field
+        = f.label :bench_press, I18n.t('workout.fields.bench_press')
+        = f.text_field :bench_press
+      .field
+        = f.label :lat_pull, I18n.t('workout.fields.lat_pull')
+        = f.text_field :lat_pull
+      .field
+        = f.label :deadlift, I18n.t('workout.fields.deadlift')
+        = f.text_field :deadlift
+      .field
+        = f.label :military_press, I18n.t('workout.fields.military_press')
+        = f.text_field :military_press
+      .field
+        = f.label :one_arm_row, I18n.t('workout.fields.one_arm_row')
+        = f.text_field :one_arm_row
+      .field
+        = f.label :curls, I18n.t('workout.fields.curls')
+        = f.text_field :curls
+      .field
+        = f.label :squats, I18n.t('workout.fields.squats')
+        = f.text_field :squats
+
+    %fieldset
+      %legend Max set values:
+      .field
+        = f.label :dips, I18n.t('workout.fields.dips')
+        = f.text_field :dips
+      .field
+        = f.label :pullups, I18n.t('workout.fields.pullups')
+        = f.text_field :pullups
+    .actions
+      = f.submit I18n.t('form.save')

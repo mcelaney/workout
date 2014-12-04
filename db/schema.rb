@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110220005) do
+ActiveRecord::Schema.define(version: 20141122170822) do
+
+  create_table "baselines", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "bench_press"
+    t.integer  "lat_pull"
+    t.integer  "deadlift"
+    t.integer  "military_press"
+    t.integer  "one_arm_row"
+    t.integer  "curls"
+    t.integer  "squats"
+    t.integer  "dips"
+    t.integer  "pullups"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "members", force: true do |t|
     t.string   "email"
