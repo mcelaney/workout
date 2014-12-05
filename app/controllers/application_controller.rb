@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_user?
   helper_method :current_user_is?
+  helper_method :ensure_unathenticated
 
   # Query: Returns the current user based on the user_id in session
   #
@@ -31,6 +32,11 @@ class ApplicationController < ActionController::Base
   #
   def current_user_is?(user_id)
     current_user.id == user_id
+  end
+
+  def ensure_unathenticated
+    return unless current_user?
+    redirect_to root_url, alert: I18n.t('session.must_not_be_authorized')
   end
 
   private

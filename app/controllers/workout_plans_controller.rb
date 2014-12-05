@@ -1,6 +1,8 @@
 # Controller to manage workout plans
 #
 class WorkoutPlansController < ApplicationController
+  include WorkoutPlanResponder
+
   before_filter :authorize
 
   # action: Update user action
@@ -11,29 +13,19 @@ class WorkoutPlansController < ApplicationController
   #
   def update
     planning.update_information(
-      success: -> (user_id:) { plan_change_success(user_id: user_id) },
-      failure: -> (user_model:) { plan_change_failure(user_model: user_model) }
+      success: -> (user_id:) { change_success(user_id: user_id) },
+      failure: -> (user_model:) { change_failure(user_model: user_model) }
     )
   end
 
   private
-
-  def plan_change_success(user_id:)
-    redirect_to user_path(user_id), notice: I18n.t('user.updated')
-  end
-
-  def plan_change_failure(user_model:)
-    user_model.load_workout_plan_params(workout_plan_params)
-    @user = User.new(user_model)
-    render 'users/show'
-  end
 
   def planning
     Workout::Planning.new(self, workout_plan_params)
   end
 
   def request_for_current_user?
-    current_user.id == params[:id].to_i
+    current_user_is?(params[:user_id].to_i)
   end
 
   def workout_plan_params
