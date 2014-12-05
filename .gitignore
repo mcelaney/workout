@@ -19,3 +19,7 @@
 /coverage
 
 .DS_Store
+
+# Ignore yardoc output
+/doc
+.yardoc
