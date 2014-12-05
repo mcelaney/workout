@@ -38,7 +38,7 @@ module Workout
       self
     end
 
-    # Command: create a new member
+    # Command: Update an existing member
     #
     # Accepts a hash of lambdas - expects success and failure keys
     # - calls :success if current_user.valid? returns true

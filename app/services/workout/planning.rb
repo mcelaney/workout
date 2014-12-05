@@ -13,6 +13,15 @@ module Workout
       @params = params
     end
 
+    # Command: Update an existing plan
+    #
+    # Accepts a hash of lambdas - expects success and failure keys
+    # - calls :success if current_user.valid? returns true
+    # - falls :failure if current_user.valid? returns false
+    #
+    # @param events [Hash]
+    # @return [self]
+    #
     def update_information(events)
       plan.assign_attributes(@params)
       update_object(

@@ -10,6 +10,11 @@ module Workout
     # Represents a user who has a member record in our data
     #
     class Baseline < ActiveRecord::Base
+      # Query: List of symbols for each exercise type available in the plan
+      #
+      # @todo Do this in a way that doesn't suck this much.
+      # @return [Array<Symbol>]
+      #
       EXERCISES = %i(
         bench_press
         lat_pull

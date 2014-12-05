@@ -6,6 +6,15 @@ module Workout
   module UserInformationService
     private
 
+    # Command: Update an existing member
+    #
+    # Accepts a hash of lambdas - expects success and failure keys
+    # - calls :success if current_user.valid? returns true
+    # - falls :failure if current_user.valid? returns false
+    #
+    # @param events [Hash]
+    # @return [self]
+    #
     def update_object(object:, user:, events:)
       if object.valid?
         object.save!

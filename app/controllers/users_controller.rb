@@ -26,7 +26,9 @@ class UsersController < ApplicationController
   def create
     joining.create_member(
       success: -> (user_id:) { user_creation_success(user_id: user_id) },
-      failure: -> (user_model:) { user_creation_failure(user_model: user_model) }
+      failure: lambda  do |user_model:|
+        user_creation_failure(user_model: user_model)
+      end
     )
   end
 
