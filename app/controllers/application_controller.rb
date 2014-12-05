@@ -34,11 +34,6 @@ class ApplicationController < ActionController::Base
     current_user.id == user_id
   end
 
-  def ensure_unathenticated
-    return unless current_user?
-    redirect_to root_url, alert: I18n.t('session.must_not_be_authorized')
-  end
-
   private
 
   def authorize
@@ -46,5 +41,10 @@ class ApplicationController < ActionController::Base
 
     flash.now.alert = I18n.t('session.invalid')
     redirect_to root_url, alert: I18n.t('session.not_authorized')
+  end
+
+  def ensure_unathenticated
+    return unless current_user?
+    redirect_to root_url, alert: I18n.t('session.must_not_be_authorized')
   end
 end
