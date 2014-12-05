@@ -4,6 +4,8 @@ module Workout
   # Service to handle joining the website
   #
   class Joining
+    include UserInformationService
+
     delegate :current_user, to: :@listener
 
     def self.new_member
@@ -28,12 +30,11 @@ module Workout
     # @return [self]
     #
     def create_member(events)
-      if new_user.valid?
-        new_user.save!
-        events[:success].call(user_id: new_user.id)
-      else
-        events[:failure].call(user_model: new_user)
-      end
+      update_object(
+        object: new_user,
+        user: new_user,
+        events: events
+      )
       self
     end
 
@@ -48,12 +49,11 @@ module Workout
     #
     def update_information(events)
       current_user.assign_attributes(@params)
-      if current_user.valid?
-        current_user.save!
-        events[:success].call(user_id: current_user.id)
-      else
-        events[:failure].call(user_model: current_user)
-      end
+      update_object(
+        object: current_user,
+        user: current_user,
+        events: events
+      )
       self
     end
 

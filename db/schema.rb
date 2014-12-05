@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122170822) do
+ActiveRecord::Schema.define(version: 20141204230034) do
 
   create_table "baselines", force: true do |t|
     t.integer  "member_id"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20141122170822) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "baselines", ["member_id"], name: "index_baselines_on_member_id"
 
   create_table "members", force: true do |t|
     t.string   "email"

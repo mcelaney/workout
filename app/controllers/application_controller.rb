@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+  helper_method :current_user?
+  helper_method :current_user_is?
+
   # Query: Returns the current user based on the user_id in session
   #
   # @return [Workout::Member|Workout::UnknownUser]
@@ -13,7 +16,6 @@ class ApplicationController < ActionController::Base
     @_user ||= Workout::Credentialing.current_user(session.fetch(:user_id, nil))
   end
 
-  helper_method :current_user?
   # Query: Returns true if current_user has an id defined
   #
   # @return [Boolean]
@@ -22,7 +24,6 @@ class ApplicationController < ActionController::Base
     current_user.id.present?
   end
 
-  helper_method :current_user_is?
   # Query: Returns true if current_user has an id defined
   #
   # @param user_id [Integer] Id of user to test
@@ -30,5 +31,14 @@ class ApplicationController < ActionController::Base
   #
   def current_user_is?(user_id)
     current_user.id == user_id
+  end
+
+  private
+
+  def authorize
+    return if current_user? && request_for_current_user?
+
+    flash.now.alert = I18n.t('session.invalid')
+    redirect_to root_url, alert: I18n.t('session.not_authorized')
   end
 end

@@ -1,6 +1,6 @@
 %h2= @user.email
 .user
   = form_for @user, method: :patch, url: user_path(@user.id) do |f|
-    = render partial: 'form', locals: { f: f, user: @user }
+    = render 'form', { f: f, user: @user }
     .actions
       = f.submit I18n.t('form.save')

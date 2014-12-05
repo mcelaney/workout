@@ -50,13 +50,6 @@ class UsersController < ApplicationController
 
   private
 
-  def authorize
-    return if current_user? && request_for_current_user?
-
-    flash.now.alert = I18n.t('session.invalid')
-    redirect_to root_url, alert: I18n.t('session.not_authorized')
-  end
-
   def ensure_unathenticated
     return unless current_user?
     redirect_to root_url, alert: I18n.t('session.must_not_be_authorized')

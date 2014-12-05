@@ -4,6 +4,8 @@ module Workout
   # Service to handle planning a workout
   #
   class Planning
+    include UserInformationService
+
     delegate :current_user, to: :@listener
 
     def initialize(listener, params)
@@ -13,12 +15,11 @@ module Workout
 
     def update_information(events)
       plan.assign_attributes(@params)
-      if plan.valid?
-        plan.save!
-        events[:success].call(user_id: current_user.id)
-      else
-        events[:failure].call(user_model: current_user)
-      end
+      update_object(
+        object: plan,
+        user: current_user,
+        events: events
+      )
     end
 
     private

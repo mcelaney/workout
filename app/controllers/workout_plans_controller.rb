@@ -18,13 +18,6 @@ class WorkoutPlansController < ApplicationController
 
   private
 
-  def authorize
-    return if current_user? && request_for_current_user?
-
-    flash.now.alert = I18n.t('session.invalid')
-    redirect_to root_url, alert: I18n.t('session.not_authorized')
-  end
-
   def plan_change_success(user_id:)
     redirect_to user_path(user_id), notice: I18n.t('user.updated')
   end
