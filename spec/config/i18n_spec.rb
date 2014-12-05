@@ -35,6 +35,7 @@ RSpec.describe I18n do
       expect(translation_exists?(I18n.t('user.title'))).to eq true
       expect(translation_exists?(I18n.t('user.show'))).to eq true
       expect(translation_exists?(I18n.t('user.updated'))).to eq true
+      expect(translation_exists?(I18n.t('user.errors.intro'))).to eq true
       expect(translation_exists?(I18n.t('user.fields.email'))).to eq true
       expect(translation_exists?(I18n.t('user.fields.password'))).to eq true
       expect(translation_exists?(I18n.t('user.fields.confirmation'))).to eq true

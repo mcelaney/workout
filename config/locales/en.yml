@@ -16,15 +16,19 @@ en:
     not_authorized: 'Please log in'
     must_not_be_authorized: 'You must be logged out to do that'
   user:
-    title: 'Join us!'
-    show: 'Your Profile'
-    updated: 'User has been updated successfully'
+    errors:
+      intro: ' prohibited this user from being saved:'
     fields:
       email: 'Your email:'
       password: 'Password'
       confirmation: 'Password Confirmation:'
       join: 'Join!'
+    title: 'Join us!'
+    show: 'Your Profile'
+    updated: 'User has been updated successfully'
   workout:
+    errors:
+      intro: ' prohibited this user from being saved:'
     fields:
       bench_press: 'Bench Press'
       lat_pull: 'Lat Pull Down'

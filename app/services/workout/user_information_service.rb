@@ -16,12 +16,18 @@ module Workout
     # @return [self]
     #
     def update_object(object:, user:, events:)
-      if object.valid?
-        object.save!
-        events[:success].call(user_id: user.id)
-      else
-        events[:failure].call(user_model: user)
-      end
+      return _guarded_save(
+        object,
+        events[:success],
+        user
+      ) if object.valid?
+      events[:failure].call(user_model: user)
+    end
+
+    def _guarded_save(object, event, user)
+      object.save!
+      event.call(user_id: user.id)
+      self
     end
   end
 end

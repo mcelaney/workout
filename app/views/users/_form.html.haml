@@ -1,9 +1,4 @@
-- if user.errors.any?
-  #error_explanation
-    %h2= "#{pluralize(user.errors.count, "error")} prohibited this user from being saved:"
-    %ul
-      - user.errors.full_messages.each do |msg|
-        %li= msg
+= display_any_errors_for(model: user, text: I18n.t('user.errors.intro'))
 
 .field
   = f.label :email, I18n.t('user.fields.email')

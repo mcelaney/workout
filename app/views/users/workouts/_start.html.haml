@@ -1,10 +1,5 @@
 %h3 Set up workout
-- if workout.errors.any?
-  #error_explanation
-    %h2= "#{pluralize(workout.errors.count, "error")} prohibited this plan from being saved:"
-    %ul
-      - workout.errors.full_messages.each do |msg|
-        %li= msg
+= display_any_errors_for(model: workout, text: I18n.t('user.errors.intro'))
 
 .defaults
   = form_for workout,                                                     |
