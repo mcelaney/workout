@@ -8,7 +8,7 @@ module ApplicationHelper
   private
 
   def _render_errors(model, text)
-    content_tag(:h2, "#{pluralize(model.errors.count, "error")} #{text}")
+    content_tag(:h2, "#{pluralize(model.errors.count, 'error')} #{text}")
     content_tag :ul do
       model.errors.full_messages.map do |message|
         concat(content_tag(:li, message))
