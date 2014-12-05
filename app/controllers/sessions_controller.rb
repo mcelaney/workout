@@ -1,8 +1,6 @@
 # Controller to manage session log in and log out resources
 #
 class SessionsController < ApplicationController
-  include SessionResponder
-
   # action: Login form
   #
   def new
@@ -17,8 +15,14 @@ class SessionsController < ApplicationController
   #
   def create
     credentialing.log_in(
-      success: -> (user_id:) { log_in_success(user_id) },
-      failure: -> { log_in_failure }
+      success: lambda do |user_id:|
+        session[:user_id] = user_id
+        redirect_to user_path(user_id), notice: I18n.t('session.logged_in')
+      end,
+      failure: lambda do
+        flash.now.alert = I18n.t('session.invalid')
+        render 'new'
+      end
     )
   end
 

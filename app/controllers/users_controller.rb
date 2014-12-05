@@ -1,8 +1,6 @@
 # Controller to manage user information
 #
 class UsersController < ApplicationController
-  include UserResponder
-
   delegate :create_member, :update_information, to: :joining
 
   before_filter :authorize, only: [:show, :edit, :update]
@@ -29,8 +27,14 @@ class UsersController < ApplicationController
   #
   def create
     create_member(
-      success: -> (user_id:) { creation_success(user_id: user_id) },
-      failure: -> (user_model:) { creation_failure(user_model: user_model) }
+      success: lambda do |user_id:|
+        session[:user_id] = user_id
+        redirect_to root_url, notice: I18n.t('session.logged_in')
+      end,
+      failure: lambda do |user_model:|
+        @user = User.new(user_model)
+        render :new
+      end
     )
   end
 
@@ -47,8 +51,13 @@ class UsersController < ApplicationController
   #
   def update
     update_information(
-      success: -> (user_id:) { change_success(user_id: user_id) },
-      failure: -> (user_model:) { change_failure(user_model: user_model) }
+      success: lambda do |user_id:|
+        redirect_to user_path(user_id), notice: I18n.t('user.updated')
+      end,
+      failure: lambda do |user_model:|
+        @user = User.new(user_model)
+        render :edit
+      end
     )
   end
 
