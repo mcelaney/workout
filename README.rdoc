@@ -4,9 +4,9 @@
 
 
 == What am I?
-This is a toy app to demonstrate some Ruby/Rails concepts. The idea is that you would log in, give some information about various exercises and/or goals, and be given workouts to perform.
+This is a toy app to demonstrate some Ruby/Rails concepts. The idea is that you would log in, give some information about various exercises and/or goals, and be given workouts to perform. It is not (even remotely) a finished app.
 
-This project displays some thoughts I have been kicking around on rails controllers, services (and PORO use in general), and testing. As of the moment I'm actively coding on it - check back frequently.
+This project displays some thoughts I have been kicking around on rails controllers, services (and PORO use in general), and testing. There are still problems with the codebase... so copy what I do with caution. I may eventually go back to cleaning this up... however I'll accept pull requests if anyone else wants to finish things up.
 
 I would love feedback on this - if you see anything you love or hate feel free to do a code review or pull request. If you have questions - hit me up on twitter: {@mcelaney}[http://www.twitter.com/mcelaney]
 
