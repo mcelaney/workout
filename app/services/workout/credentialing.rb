@@ -35,9 +35,13 @@ module Workout
     # @return [self]
     #
     def log_in(events)
-      return guarded(events[:success], user_id: user.id) if authed?(user)
-      sleep(rand * 0.25)
-      events[:failure].call
+      if authed?(user)
+        guarded(events[:success], user_id: user.id) 
+      else 
+        sleep(rand * 0.25)
+        events[:failure].call
+      end
+      
       self
     end
 
@@ -49,11 +53,6 @@ module Workout
 
     def user
       @_user ||= User::Member.find_by_email(@email)
-    end
-
-    def guarded(method, params)
-      method.call(params)
-      self
     end
   end
 end
