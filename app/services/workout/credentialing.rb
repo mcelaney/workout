@@ -36,7 +36,7 @@ module Workout
     #
     def log_in(events)
       if authed?(user)
-        guarded(events[:success], user_id: user.id) 
+        events[:success].call(user.id) 
       else 
         sleep(rand * 0.25)
         events[:failure].call
